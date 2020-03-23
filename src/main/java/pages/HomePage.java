@@ -6,13 +6,22 @@ import org.openqa.selenium.WebDriver;
 public class HomePage {
 
     private WebDriver driver;
-    private By contactLink = By.linkText("contact");
 
     public HomePage (WebDriver driver){
         this.driver = driver;
     }
+
     public ContactPage clickContact(){
-        driver.findElement(contactLink).click();
+        clickLink("contact");
         return new ContactPage(driver);
+    }
+
+    public JobsPage clickJobs(){
+        clickLink("jobs");
+        return new JobsPage(driver);
+    }
+
+    public void clickLink(String linkText){
+        driver.findElement(By.linkText(linkText)).click();
     }
 }

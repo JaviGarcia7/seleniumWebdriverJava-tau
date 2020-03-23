@@ -1,9 +1,6 @@
 package base;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -22,6 +19,8 @@ public class BaseTest {
         driver = new ChromeDriver();
         driver.get("http://zemogadev.zemoga.com");
         driver.manage().window().maximize();
+/*        JavascriptExecutor scroll = (JavascriptExecutor) driver;
+        scroll.executeScript("window.scrollBy(0,250)");*/
 
         homePage = new HomePage(driver);
 
