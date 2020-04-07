@@ -13,12 +13,26 @@ public class HomePage {
 
     public ContactPage clickContact(){
         clickLink("contact");
+        System.out.println(driver.getTitle());
         return new ContactPage(driver);
     }
 
     public JobsPage clickJobs(){
         clickLink("jobs");
+        System.out.println(driver.getTitle());
         return new JobsPage(driver);
+    }
+
+    public WorkPage clickClients(){
+        clickLink("work");
+        System.out.println(driver.getTitle());
+        return new WorkPage(driver);
+    }
+
+    public EmailSuscriptionPage clickBlog(){
+        clickLink("blog");
+        System.out.println(driver.getTitle());
+        return new EmailSuscriptionPage(driver);
     }
 
     public void clickLink(String linkText){

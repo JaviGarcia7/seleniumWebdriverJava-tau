@@ -5,8 +5,6 @@ import org.testng.annotations.Test;
 import pages.ContactPage;
 import pages.ThankYouPage;
 
-import java.awt.*;
-
 import static org.testng.Assert.*;
 
 public class ContactTests extends BaseTest {
