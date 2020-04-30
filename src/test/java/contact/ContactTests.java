@@ -17,11 +17,6 @@ public class ContactTests extends BaseTest {
        contactPage.setMessage("Nam adipiscing. In dui magna, posuere eget, vestibulum et, tempor auctor, justo.");
        contactPage.setDataProtection();
        ThankYouPage thankYouPage = contactPage.clickSendButton();
-       try {
-            Thread.sleep(3000);
-       } catch (InterruptedException e) {
-            e.printStackTrace();
-       }
        assertTrue(thankYouPage.getSuccessText().contains("thank you"),
                "Successful text is incorrect");
     }

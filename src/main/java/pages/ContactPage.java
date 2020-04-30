@@ -4,8 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 
 import java.awt.*;
+import java.time.Duration;
 
 public class ContactPage {
 
@@ -34,12 +37,9 @@ public class ContactPage {
         actions.moveToElement(element).click().build().perform();
     }
     public ThankYouPage clickSendButton(){
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         driver.findElement(sendButton).click();
+        FluentWait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.invisibilityOf(driver.findElement(sendButton)));
         return new ThankYouPage(driver);
     }
 }

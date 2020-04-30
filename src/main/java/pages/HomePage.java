@@ -35,6 +35,12 @@ public class HomePage {
         return new EmailSuscriptionPage(driver);
     }
 
+    public BlogPage goToBlog(){
+        clickLink("blog");
+        System.out.println(driver.getTitle());
+        return new BlogPage(driver);
+    }
+
     public void clickLink(String linkText){
         driver.findElement(By.linkText(linkText)).click();
     }
