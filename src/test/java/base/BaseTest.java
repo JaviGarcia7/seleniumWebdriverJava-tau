@@ -3,6 +3,7 @@ package base;
 import com.google.common.io.Files;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -26,9 +27,10 @@ public class BaseTest {
     @BeforeClass
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
-        driver = new EventFiringWebDriver (new ChromeDriver());
+        driver = new EventFiringWebDriver (new ChromeDriver(getChromeOptions()));
         driver.register(new EventReporter());
         goHome();
+        setCookie();
     }
 
     @BeforeMethod
@@ -59,6 +61,19 @@ public class BaseTest {
 
     public WindowManager getWindowManager(){
         return new WindowManager(driver);
+    }
+
+    public ChromeOptions getChromeOptions(){
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("disable-infobars");
+        return options;
+    }
+
+    private void setCookie(){
+        Cookie cookie = new Cookie.Builder("zSite", "1234")
+                .domain("zemogadev.zemoga.com")
+                .build();
+        driver.manage().addCookie(cookie);
     }
 }
 
