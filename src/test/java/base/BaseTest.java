@@ -1,9 +1,12 @@
 package base;
 
+import com.applitools.eyes.MatchLevel;
+import com.applitools.eyes.selenium.Eyes;
 import com.google.common.io.Files;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -15,22 +18,33 @@ import utils.EventReporter;
 import utils.WindowManager;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
     private EventFiringWebDriver driver;
     protected HomePage homePage;
+    protected static EyesManager eyesManager;
 
     @BeforeClass
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "resources/chromedriver");
+        Properties props = System.getProperties();
+        try{
+            props.load(new FileInputStream(new File("resources/test.properties")));
+        } catch(Exception e){
+            e.printStackTrace();
+            System.exit(-1);
+        }
         driver = new EventFiringWebDriver (new ChromeDriver(getChromeOptions()));
         driver.register(new EventReporter());
         goHome();
         setCookie();
+
+        eyesManager = new EyesManager(driver, "Zemoga");
     }
 
     @BeforeMethod
@@ -43,6 +57,7 @@ public class BaseTest {
     @AfterClass
     public void tearDown(){
         driver.quit();
+        eyesManager.abort();
     }
 
     @AfterMethod

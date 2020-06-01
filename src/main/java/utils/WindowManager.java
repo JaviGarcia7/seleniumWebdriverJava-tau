@@ -1,5 +1,6 @@
 package utils;
 
+import com.applitools.eyes.selenium.Eyes;
 import org.openqa.selenium.WebDriver;
 
 public class WindowManager {
@@ -26,4 +27,5 @@ public class WindowManager {
     public void goTo(String url){
         navigate.to(url);
     }
+
 }
