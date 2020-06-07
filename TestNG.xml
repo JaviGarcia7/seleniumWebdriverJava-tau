@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="N11 Test Suite" >
+    <listeners>
+        <listener class-name="utils.Listeners.TestListener"/>
+        <listener class-name="utils.Listeners.AnnotationTransformer"/>
+    </listeners>
+
+    <test name="BlogTests">
+        <classes>
+            <class name="blog.BlogTests"/>
+        </classes>
+    </test>
+    <test name="ContactTests">
+        <classes>
+            <class name="contact.ContactTests"/>
+        </classes>
+    </test>
+    <test name="JobsTests">
+        <classes>
+            <class name="jobs.JobsTests"/>
+        </classes>
+    </test>
+    <test name="NavigationTests">
+        <classes>
+            <class name="navigation.NavigationTests"/>
+        </classes>
+    </test>
+    <test name="EmailSuscriptionTest">
+        <classes>
+            <class name="suscription.EmailSuscriptionTest"/>
+        </classes>
+    </test>
+    <test name="WorkTests">
+        <classes>
+            <class name="work.WorkTests"/>
+        </classes>
+    </test>
+</suite>

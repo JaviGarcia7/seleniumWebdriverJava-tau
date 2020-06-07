@@ -90,6 +90,10 @@ public class BaseTest {
                 .build();
         driver.manage().addCookie(cookie);
     }
+
+    public WebDriver getDriver() {
+        return driver;
+    }
 }
 
 
