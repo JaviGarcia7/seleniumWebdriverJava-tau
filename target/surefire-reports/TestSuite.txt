@@ -1,0 +1,30 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 233.175 s <<< FAILURE! - in TestSuite
+testEmailSuscription(suscription.EmailSuscriptionTest)  Time elapsed: 2.404 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"#subscribe-form > div.form-group.z-subscribe-inputs > div > button"}
+  (Session info: chrome=83.0.4103.106)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ZCOBTM10457-JavierGarcia.local', ip: '2800:484:2879:f900:3af9:d3ff:fe98:d2e1%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.5', java.version: '13.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 83.0.4103.106, chrome: {chromedriverVersion: 83.0.4103.39 (ccbf011cb2d2b..., userDataDir: /var/folders/49/pwhcb5vs4bj...}, goog:chromeOptions: {debuggerAddress: localhost:57535}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: ff6278e949f7a467f0c27c9b00986cf7
+*** Element info: {Using=css selector, value=#subscribe-form > div.form-group.z-subscribe-inputs > div > button}
+	at suscription.EmailSuscriptionTest.testEmailSuscription(EmailSuscriptionTest.java:16)
+
+testHoverPartnersItem(work.WorkTests)  Time elapsed: 4.826 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":".tooltip"}
+  (Session info: chrome=83.0.4103.106)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ZCOBTM10457-JavierGarcia.local', ip: '2800:484:2879:f900:3af9:d3ff:fe98:d2e1%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.5', java.version: '13.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 83.0.4103.106, chrome: {chromedriverVersion: 83.0.4103.39 (ccbf011cb2d2b..., userDataDir: /var/folders/49/pwhcb5vs4bj...}, goog:chromeOptions: {debuggerAddress: localhost:58076}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 574256dc1fa07ae43024edd8a1f9bfc5
+*** Element info: {Using=class name, value=tooltip}
+	at work.WorkTests.testHoverPartnersItem(WorkTests.java:19)
+

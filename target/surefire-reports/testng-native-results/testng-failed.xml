@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" parallel="methods" name="Failed suite [Surefire suite]" verbose="0">
+  <test thread-count="1" parallel="methods" name="Surefire test(failed)" verbose="0">
+    <classes>
+      <class name="work.WorkTests">
+        <methods>
+          <include name="goHome"/>
+          <include name="setUp"/>
+          <include name="testHoverPartnersItem"/>
+          <include name="tearDown"/>
+          <include name="recordFailure"/>
+        </methods>
+      </class> <!-- work.WorkTests -->
+      <class name="suscription.EmailSuscriptionTest">
+        <methods>
+          <include name="goHome"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="testEmailSuscription"/>
+          <include name="recordFailure"/>
+        </methods>
+      </class> <!-- suscription.EmailSuscriptionTest -->
+    </classes>
+  </test> <!-- Surefire test(failed) -->
+</suite> <!-- Failed suite [Surefire suite] -->

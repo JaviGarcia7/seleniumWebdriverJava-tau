@@ -1,3 +1,6 @@
+//Create Methods to call the blog page, then go the footer, fill the your email field, click on the subscribe button and validate that the
+// email was subscribed correctly.
+
 package pages;
 
 import org.openqa.selenium.By;

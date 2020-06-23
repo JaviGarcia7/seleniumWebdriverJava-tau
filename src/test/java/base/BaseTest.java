@@ -1,18 +1,22 @@
+//BaseTest were the following actions are applied:
+// - Set Up the the Chrome WebDriver
+// - Create Classes to set up the page to be called
+// - Create Method to take a screenshot of the failed cases
+// - Create Method to set a Cookie
+
 package base;
 
-import com.applitools.eyes.MatchLevel;
-import com.applitools.eyes.selenium.Eyes;
 import com.google.common.io.Files;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import pages.ContactPage;
 import pages.HomePage;
 import utils.EventReporter;
 import utils.WindowManager;
@@ -20,14 +24,13 @@ import utils.WindowManager;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.List;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
     private EventFiringWebDriver driver;
     protected HomePage homePage;
+    protected ContactPage contactPage;
     protected static EyesManager eyesManager;
 
     @BeforeClass
@@ -46,12 +49,16 @@ public class BaseTest {
 
         eyesManager = new EyesManager(driver, "Zemoga");
     }
+    public WebDriver getDriver() {
+        return driver;
+    }
 
     @BeforeMethod
     public void goHome(){
         driver.get("http://zemogadev.zemoga.com");
         driver.manage().window().maximize();
         homePage = new HomePage(driver);
+        contactPage = new ContactPage(driver);
     }
 
     @AfterClass
@@ -89,10 +96,6 @@ public class BaseTest {
                 .domain("zemogadev.zemoga.com")
                 .build();
         driver.manage().addCookie(cookie);
-    }
-
-    public WebDriver getDriver() {
-        return driver;
     }
 }
 

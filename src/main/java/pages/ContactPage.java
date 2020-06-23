@@ -1,14 +1,18 @@
+//Create Methods to call the contact page, then fill out the form. send the information and finally validate the information was sent correctly.
+
 package pages;
 
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
-
-import java.awt.*;
 import java.time.Duration;
+
 
 public class ContactPage {
 
@@ -19,11 +23,22 @@ public class ContactPage {
     private By dataProtectionCheckBox = By.id("data-protection");
     private By sendButton = By.cssSelector("#contact-form > div:nth-child(9) > button");
 
-
     public ContactPage(WebDriver driver){
         this.driver = driver;
     }
 
+    @Given("The user is in the Contact Page")
+    public ContactPage clickContact(){
+        clickLink("contact");
+        System.out.println(driver.getTitle());
+        return new ContactPage(driver);
+    }
+
+    public void clickLink(String linkText){
+        driver.findElement(By.linkText(linkText)).click();
+    }
+
+    @When("The user enters the Mandatory Information")
     public void setName(String name){ driver.findElement(nameField).sendKeys(name); }
     public void setEmail(String email){
         driver.findElement(emailField).sendKeys(email);
@@ -36,6 +51,8 @@ public class ContactPage {
         WebElement element = driver.findElement(dataProtectionCheckBox);
         actions.moveToElement(element).click().build().perform();
     }
+
+    @Then("The user clicks on the Send Button")
     public ThankYouPage clickSendButton(){
         driver.findElement(sendButton).click();
         FluentWait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(5));

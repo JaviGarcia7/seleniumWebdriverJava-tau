@@ -1,9 +1,12 @@
+// Create Methods to call each page tested and get the title of the page
+
 package pages;
 
+import io.cucumber.java.en.Given;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class HomePage {
+public class HomePage{
 
     private WebDriver driver;
 
@@ -11,11 +14,12 @@ public class HomePage {
         this.driver = driver;
     }
 
+/*    @Given("The user is in the Contact Page")
     public ContactPage clickContact(){
         clickLink("contact");
         System.out.println(driver.getTitle());
         return new ContactPage(driver);
-    }
+    }*/
 
     public JobsPage clickJobs(){
         clickLink("jobs");

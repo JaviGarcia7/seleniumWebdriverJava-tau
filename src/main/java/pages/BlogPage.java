@@ -1,3 +1,5 @@
+//Create Methods to call the blog page, then scroll down and click on the contact us button and finally click on the linkedln social button
+
 package pages;
 
 import org.openqa.selenium.By;

@@ -1,3 +1,4 @@
+//Create Methods to validate information filled in the forms was sent correctly.
 package pages;
 
 import org.openqa.selenium.By;

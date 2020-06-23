@@ -1,3 +1,5 @@
+//Create Methods to call the jobs page, then fill out the form. send the information and finally validate the information was sent correctly.
+
 package pages;
 
 import org.openqa.selenium.By;

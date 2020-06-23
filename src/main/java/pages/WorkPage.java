@@ -1,3 +1,5 @@
+//Create Methods to call the work page, then scroll down to the client's panel, and validate the information of one client doing mouse hover.
+
 package pages;
 
 import org.openqa.selenium.By;
