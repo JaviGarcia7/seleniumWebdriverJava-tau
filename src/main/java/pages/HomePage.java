@@ -14,12 +14,12 @@ public class HomePage{
         this.driver = driver;
     }
 
-/*    @Given("The user is in the Contact Page")
+    //@Given("The user is in the Contact Page")
     public ContactPage clickContact(){
         clickLink("contact");
         System.out.println(driver.getTitle());
         return new ContactPage(driver);
-    }*/
+    }
 
     public JobsPage clickJobs(){
         clickLink("jobs");

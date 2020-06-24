@@ -27,18 +27,7 @@ public class ContactPage {
         this.driver = driver;
     }
 
-    @Given("The user is in the Contact Page")
-    public ContactPage clickContact(){
-        clickLink("contact");
-        System.out.println(driver.getTitle());
-        return new ContactPage(driver);
-    }
-
-    public void clickLink(String linkText){
-        driver.findElement(By.linkText(linkText)).click();
-    }
-
-    @When("The user enters the Mandatory Information")
+    //@When("The user enters the Mandatory Information")
     public void setName(String name){ driver.findElement(nameField).sendKeys(name); }
     public void setEmail(String email){
         driver.findElement(emailField).sendKeys(email);
@@ -52,7 +41,7 @@ public class ContactPage {
         actions.moveToElement(element).click().build().perform();
     }
 
-    @Then("The user clicks on the Send Button")
+    //@Then("The user clicks on the Send Button")
     public ThankYouPage clickSendButton(){
         driver.findElement(sendButton).click();
         FluentWait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(5));
